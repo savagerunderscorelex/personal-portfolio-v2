@@ -1,0 +1,19 @@
+/* media query copied from GWC project, adjust later */
+@media screen and (max-width: 850px){
+  .flex-container{ /* makes elements wrap */
+    flex-wrap: wrap;
+    
+  }
+  .to-next-page{ /* centering the next page buttons */
+    float: none;
+    margin: 0 auto;
+  }
+
+  #nav-bar { /* making the nav bar a column */
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .nav-links{ /* makes the navigation links smaller */
+    font-size: 0.7em;
+  }
+}
