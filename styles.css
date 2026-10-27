@@ -17,3 +17,14 @@
     font-size: 0.7em;
   }
 }
+
+.centered{
+    text-align: center;
+    
+    color: blue;
+}
+
+#example {
+  position: absolute;
+  z-index: 9;
+}
