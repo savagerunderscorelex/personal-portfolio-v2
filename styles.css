@@ -34,3 +34,14 @@
   width: 100%;
   background-color: red;
 }
+
+.windows {
+  border: 2px solid black;
+}
+
+/* Taskbar Styling */
+#taskbar {
+  width: 100vw;
+  height: 5vh;
+  background-color: pink;
+}

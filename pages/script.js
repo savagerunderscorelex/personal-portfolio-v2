@@ -1,6 +1,37 @@
-// Make the DIV element draggable:
+// Defining variables
+var welcomeOpen = document.getElementById("example-icon");
+var welcomeClose = document.getElementById("example-close")
+var welcomeScreen = document.getElementById("example");
 
-dragElement(document.getElementById("example"));
+
+
+dragElement(welcomeScreen);
+welcomeClose.addEventListener("click", function() {
+  closeWindow(welcomeScreen);
+});
+
+welcomeOpen.addEventListener("click", function() {
+  openWindow(welcomeScreen);
+});
+
+
+function changeDisplay(element){
+  
+}
+
+function closeWindow(element){
+  element.style.display = "none";
+}
+
+function openWindow(element) {
+  element.style.display = "block"
+}
+
+
+
+
+
+
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
