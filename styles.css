@@ -28,3 +28,9 @@
   position: absolute;
   z-index: 9;
 }
+
+.headers{
+  cursor: move;
+  width: 100%;
+  background-color: red;
+}

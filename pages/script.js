@@ -37,6 +37,7 @@ function dragElement(element) {
   function dragElement(e) {
     e = e || window.event;
     e.preventDefault();
+    
     // Step 10: Calculate the new cursor position.
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
