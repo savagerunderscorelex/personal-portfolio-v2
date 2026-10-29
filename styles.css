@@ -22,16 +22,16 @@ body {
   border-radius: 5%;
   height: 100px;
   width: 100px;
-  margin-bottom: 5vh;
+  margin-bottom: 9%;
 
 }
 
 #icon-container{
   width: 120px;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
-  margin-left: 2vw;
+  margin-left: 1.5vw;
 }
 
 
@@ -46,6 +46,7 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 9px;
   height: 30px;
+  align-items: center;
 }
 
 .windows {
@@ -53,20 +54,25 @@ body {
   border-radius: 10px;
   position: absolute;
   z-index: 1;
-
-  
+  background-color: white;
 }
 
 .header-buttons {
-  margin-left: 10px;
-  margin-top: 5px;
   height: 20px;
   width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px
+}
+
+.originally-closed {
+  display: none;
 }
 
 /* Welcome Window & Icon */
 #welcome-icon {
-  margin-top: 3vh;
+  margin-top: 1vh;
 }
 
 #welcome {
@@ -90,7 +96,7 @@ body {
 /* Taskbar Styling */
 #taskbar {
   width: 100%;
-  height: 5vh;
+  height: 6vh;
   background-color: pink;
   position: fixed;
   left: 0;
@@ -104,6 +110,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
+  margin-top: 2px;
   
   
 }

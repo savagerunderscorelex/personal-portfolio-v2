@@ -1,7 +1,14 @@
 // Defining variables
+
+// Welcome Screen Variables
 var welcomeOpen = document.getElementById("welcome-icon");
 var welcomeClose = document.getElementById("welcome-close")
 var welcomeScreen = document.getElementById("welcome");
+
+// Projects Screen Variables
+var projectsScreen = document.getElementById("projects");
+var projectsOpen = document.getElementById("projects-icon");
+var projectsClose = document.getElementById("projects-close")
 
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
@@ -33,6 +40,15 @@ welcomeClose.addEventListener("click", function() {
 });
 welcomeOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
+});
+
+// Projects Window Code
+dragElement(projectsScreen);
+projectsClose.addEventListener("click", function() {
+  closeWindow(projectsScreen);
+});
+projectsOpen.addEventListener("click", function() {
+  openWindow(projectsScreen);
 });
 
 
