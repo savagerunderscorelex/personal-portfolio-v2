@@ -25,6 +25,11 @@ var fileExplorerScreen = document.getElementById("file-explorer");
 var fileExplorerOpen = document.getElementById("file-explorer-icon");
 var fileExplorerClose = document.getElementById("file-explorer-close");
 
+// Settings Screen Variables
+var settingsScreen = document.getElementById("settings");
+var settingsOpen = document.getElementById("settings-icon");
+var settingsClose = document.getElementById("settings-close");
+
 // Taskbar Area Variables
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
@@ -70,7 +75,6 @@ interestsOpen.addEventListener("click", function() {
   openWindow(interestsScreen);
 });
 
-
 // File Explorer Window Code
 dragElement(fileExplorerScreen);
 fileExplorerClose.addEventListener("click", function() {
@@ -89,6 +93,14 @@ socialsOpen.addEventListener("click", function() {
   openWindow(socialsScreen);
 });
 
+// Settings Window Code
+dragElement(settingsScreen);
+settingsClose.addEventListener("click", function() {
+  closeWindow(settingsScreen);
+});
+settingsOpen.addEventListener("click", function() {
+  openWindow(settingsScreen);
+});
 
 function closeWindow(element){
   element.style.display = "none";
