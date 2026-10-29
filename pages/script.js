@@ -34,6 +34,9 @@ var settingsClose = document.getElementById("settings-close");
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
 
+// Z-index variable
+var zIndex = 2;
+
 
 // Updates Time Section
 setInterval(function(){
@@ -45,8 +48,6 @@ setInterval(function(){
   dateSection.innerText = currentTime.toLocaleDateString();
   
 }, 1000);
-
-
 
 // Welcome Window Code
 dragElement(welcomeScreen);
@@ -104,10 +105,13 @@ settingsOpen.addEventListener("click", function() {
 
 function closeWindow(element){
   element.style.display = "none";
+  
 }
 
 function openWindow(element) {
-  element.style.display = "block"
+  zIndex += 1;
+  element.style.display = "block";
+  element.style.zIndex = zIndex;
 }
 
 // Code from Stardance Jam
