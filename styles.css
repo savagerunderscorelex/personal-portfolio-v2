@@ -16,20 +16,26 @@ body {
 
 /* Icons */
 
-.app-icons{
-  width: 100px; 
-  height: 100px; 
+.app-icons{ 
   background-color: blue;
-  border-radius: 10%;
+  display: block;
+  border-radius: 5%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 5vh;
 
 }
 
-#example {
-  
-  
-  
-
+#icon-container{
+  width: 120px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vw;
 }
+
+
+/* Windows (General) */
 
 .headers{
   display: flex;
@@ -39,6 +45,7 @@ body {
   background-color: red;
   border-top-left-radius: 10px;
   border-top-right-radius: 9px;
+  height: 30px;
 }
 
 .windows {
@@ -46,10 +53,39 @@ body {
   border-radius: 10px;
   position: absolute;
   z-index: 1;
-  width: 100px;
-  height: 100px;
+
   
 }
+
+.header-buttons {
+  margin-left: 10px;
+  margin-top: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+/* Welcome Window & Icon */
+#welcome-icon {
+  margin-top: 3vh;
+}
+
+#welcome {
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 200px;
+  overflow: none;
+  resize: both;
+}
+
+#welcome-title {
+  margin-left: 5%;
+}
+#welcome-paragraph{
+  margin: 0 5% 0 5%;
+}
+
 
 /* Taskbar Styling */
 #taskbar {

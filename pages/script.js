@@ -1,7 +1,7 @@
 // Defining variables
-var welcomeOpen = document.getElementById("example-icon");
-var welcomeClose = document.getElementById("example-close")
-var welcomeScreen = document.getElementById("example");
+var welcomeOpen = document.getElementById("welcome-icon");
+var welcomeClose = document.getElementById("welcome-close")
+var welcomeScreen = document.getElementById("welcome");
 
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
@@ -26,12 +26,11 @@ setInterval(function(){
 
 
 
-
+// Welcome Window Code
 dragElement(welcomeScreen);
 welcomeClose.addEventListener("click", function() {
   closeWindow(welcomeScreen);
 });
-
 welcomeOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
