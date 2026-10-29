@@ -13,21 +13,15 @@ var projectsClose = document.getElementById("projects-close")
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
 
+
+// Updates Time Section
 setInterval(function(){
-  
-  var currentTime = new Date().toLocaleString();
+  var currentTime = new Date();
   var timeSection = document.getElementById("time");
   var dateSection = document.getElementById("date")
-  var currentDate = currentTime.split(" ");
-  timeSection.innerText = currentDate[1];
-  tempRemoveComma = currentDate[0].split(",");
-  dateSection.innerText = tempRemoveComma[0];
-  // Had to do this because the date & time position
-  // Doesn't update in the style sheet
 
-  timeSection.style.marginLeft = "auto";
-  dateSection.style.marginLeft = "auto";
-
+  timeSection.innerText = currentTime.toLocaleTimeString();
+  dateSection.innerText = currentTime.toLocaleDateString();
   
 }, 1000);
 
@@ -52,9 +46,6 @@ projectsOpen.addEventListener("click", function() {
 });
 
 
-function changeDisplay(element){
-  
-}
 
 function closeWindow(element){
   element.style.display = "none";
@@ -64,11 +55,7 @@ function openWindow(element) {
   element.style.display = "block"
 }
 
-
-
-
-
-
+// Code from Stardance Jam
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
