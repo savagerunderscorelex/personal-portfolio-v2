@@ -44,4 +44,18 @@
   width: 100vw;
   height: 5vh;
   background-color: pink;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+#time-and-date{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  
 }

@@ -3,6 +3,22 @@ var welcomeOpen = document.getElementById("example-icon");
 var welcomeClose = document.getElementById("example-close")
 var welcomeScreen = document.getElementById("example");
 
+setInterval(function(){
+  var currentTime = new Date().toLocaleString();
+  var timeSection = document.getElementById("time");
+  var dateSection = document.getElementById("date")
+  var currentDate = currentTime.split(" ");
+  timeSection.innerText = currentDate[1];
+  tempRemoveComma = currentDate[0].split(",");
+  dateSection.innerText = tempRemoveComma[0];
+  // Had to do this because the date & time position
+  // Doesn't update in the style sheet
+
+  timeSection.style.marginLeft = "auto";
+  dateSection.style.marginLeft = "auto";
+}, 1000);
+
+
 
 
 dragElement(welcomeScreen);
