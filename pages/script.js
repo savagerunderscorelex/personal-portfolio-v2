@@ -3,7 +3,11 @@ var welcomeOpen = document.getElementById("example-icon");
 var welcomeClose = document.getElementById("example-close")
 var welcomeScreen = document.getElementById("example");
 
+var timeAndDateSection = document.getElementById("time-and-date");
+var taskbar = document.getElementById("taskbar");
+
 setInterval(function(){
+  
   var currentTime = new Date().toLocaleString();
   var timeSection = document.getElementById("time");
   var dateSection = document.getElementById("date")
@@ -16,6 +20,8 @@ setInterval(function(){
 
   timeSection.style.marginLeft = "auto";
   dateSection.style.marginLeft = "auto";
+
+  
 }, 1000);
 
 
