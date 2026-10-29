@@ -8,8 +8,14 @@ var welcomeScreen = document.getElementById("welcome");
 // Projects Screen Variables
 var projectsScreen = document.getElementById("projects");
 var projectsOpen = document.getElementById("projects-icon");
-var projectsClose = document.getElementById("projects-close")
+var projectsClose = document.getElementById("projects-close");
 
+// File Explorer Screen Variables
+var fileExplorerScreen = document.getElementById("file-explorer");
+var fileExplorerOpen = document.getElementById("file-explorer-icon");
+var fileExplorerClose = document.getElementById("file-explorer-close");
+
+// Taskbar Area Variables
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
 
@@ -43,6 +49,15 @@ projectsClose.addEventListener("click", function() {
 });
 projectsOpen.addEventListener("click", function() {
   openWindow(projectsScreen);
+});
+
+// File Explorer Window Code
+dragElement(fileExplorerScreen);
+fileExplorerClose.addEventListener("click", function() {
+  closeWindow(fileExplorerScreen);
+});
+fileExplorerOpen.addEventListener("click", function() {
+  openWindow(fileExplorerScreen);
 });
 
 
