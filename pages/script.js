@@ -15,6 +15,11 @@ var fileExplorerScreen = document.getElementById("file-explorer");
 var fileExplorerOpen = document.getElementById("file-explorer-icon");
 var fileExplorerClose = document.getElementById("file-explorer-close");
 
+// Interests Screen Variables
+var interestsScreen = document.getElementById("interests");
+var interestsOpen = document.getElementById("interests-icon");
+var interestsClose = document.getElementById("interests-close");
+
 // Taskbar Area Variables
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
@@ -50,6 +55,16 @@ projectsClose.addEventListener("click", function() {
 projectsOpen.addEventListener("click", function() {
   openWindow(projectsScreen);
 });
+
+// Interests Window Code
+dragElement(interestsScreen);
+interestsClose.addEventListener("click", function() {
+  closeWindow(interestsScreen);
+});
+interestsOpen.addEventListener("click", function() {
+  openWindow(interestsScreen);
+});
+
 
 // File Explorer Window Code
 dragElement(fileExplorerScreen);
