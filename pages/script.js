@@ -10,15 +10,20 @@ var projectsScreen = document.getElementById("projects");
 var projectsOpen = document.getElementById("projects-icon");
 var projectsClose = document.getElementById("projects-close");
 
-// File Explorer Screen Variables
-var fileExplorerScreen = document.getElementById("file-explorer");
-var fileExplorerOpen = document.getElementById("file-explorer-icon");
-var fileExplorerClose = document.getElementById("file-explorer-close");
-
 // Interests Screen Variables
 var interestsScreen = document.getElementById("interests");
 var interestsOpen = document.getElementById("interests-icon");
 var interestsClose = document.getElementById("interests-close");
+
+// Socials Screen Variables
+var socialsScreen = document.getElementById("socials");
+var socialsOpen = document.getElementById("socials-icon");
+var socialsClose = document.getElementById("socials-close");
+
+// File Explorer Screen Variables
+var fileExplorerScreen = document.getElementById("file-explorer");
+var fileExplorerOpen = document.getElementById("file-explorer-icon");
+var fileExplorerClose = document.getElementById("file-explorer-close");
 
 // Taskbar Area Variables
 var timeAndDateSection = document.getElementById("time-and-date");
@@ -75,6 +80,14 @@ fileExplorerOpen.addEventListener("click", function() {
   openWindow(fileExplorerScreen);
 });
 
+// Socials Window Code
+dragElement(socialsScreen);
+socialsClose.addEventListener("click", function() {
+  closeWindow(socialsScreen);
+});
+socialsOpen.addEventListener("click", function() {
+  openWindow(socialsScreen);
+});
 
 
 function closeWindow(element){
