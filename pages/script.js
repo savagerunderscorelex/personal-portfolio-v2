@@ -10,6 +10,14 @@ var projectsScreen = document.getElementById("projects");
 var projectsOpen = document.getElementById("projects-icon");
 var projectsClose = document.getElementById("projects-close");
 
+var completedHardwareButton = document.getElementById("hardware-complete");
+var inprogHardwareButton = document.getElementById("hardware-inprogress");
+var incompleteHardwareButton = document.getElementById("hardware-incomplete");
+
+var completedSectionHardware = document.getElementById(completedHardwareButton.id + "-section");
+var inprogSectionHardware = document.getElementById(inprogHardwareButton.id + "-section");
+var incompleteSectionHardware = document.getElementById(incompleteHardwareButton.id + "-section");
+
 // Interests Screen Variables
 var interestsScreen = document.getElementById("interests");
 var interestsOpen = document.getElementById("interests-icon");
@@ -36,6 +44,10 @@ var taskbar = document.getElementById("taskbar");
 
 // Z-index variable
 var zIndex = 2;
+
+
+
+
 
 
 // Updates Time Section
@@ -113,6 +125,32 @@ function openWindow(element) {
   element.style.display = "block";
   element.style.zIndex = zIndex;
 }
+
+var currentlySelectedHardware = completedHardwareButton;
+var currentlyOpenSection = completedSectionHardware;
+
+inprogHardwareButton.addEventListener("click", function(){
+  selectSelection(inprogSectionHardware,inprogHardwareButton);
+});
+completedHardwareButton.addEventListener("click", function() {
+  selectSelection(completedSectionHardware, completedHardwareButton)
+});
+incompleteHardwareButton.addEventListener("click", function(){
+  selectSelection(incompleteSectionHardware, incompleteHardwareButton)
+});
+
+function selectSelection(element, button){
+  currentlySelectedHardware.classList.remove("currently-selected");
+  currentlySelectedHardware = button;
+  currentlySelectedHardware.classList.add("currently-selected");
+
+  currentlyOpenSection.style.display = "none";
+  currentlyOpenSection = element;
+
+  currentlyOpenSection.style.display = "block";
+
+}
+
 
 // Code from Stardance Jam
 
