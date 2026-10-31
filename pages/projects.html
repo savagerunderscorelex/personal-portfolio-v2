@@ -28,29 +28,46 @@
                 <button class="minimize-button header-buttons" id="projectsminimize-close">-</button>
             </div>
             <p id="projects-title">My Projects</p>
-            <div id="hardware-projects">
-                <p id="hardware-title">Hardware Projects</p>
-                <button id="hardware-complete" class="currently-selected">Completed</button>
-                <button id="hardware-inprogress">In Progress</button>
-                <button id="hardware-incomplete">Incomplete</button>
-                <div id="hardware-complete-section" class="hardware-sections">complete</div>
+
+            <div id="hardware-projects" class="projects-container">
+                <p id="hardware-title" class="section-titles">Hardware Projects</p>
+                <div class="tabs-container">
+                    <button id="hardware-complete" class="currently-selected project-tabs">Completed</button>
+                    <button id="hardware-inprogress" class="project-tabs">In Progress</button>
+                    <button id="hardware-incomplete" class="project-tabs">Incomplete</button>
+                </div>
+
+                <div id="hardware-complete-section" class="hardware-sections">
+                    <div class="project-cards completed-hardware">
+                        <p class="project-card-titles">Project 1</p>
+                        <img src="" alt="" class="project-images">
+                        <p class="project-descriptions">jksd;jkafjdsk;jfdsjfk;ldsjafsd</p>
+                        <p class="github-links">djsk;fjsdkfjsd;afjd</p>
+                    </div>
+                </div>
                 <div id="hardware-inprogress-section" class="hardware-sections" style="display: none;">inprogress</div>
                 <div id="hardware-incomplete-section" class="hardware-sections" style="display: none;">incomplete</div>
+            
             </div>
-            <div id="software-projects">
-                <p id="software-title">Websites & Software</p>
-                <button id="software-complete" class="currently-selected">Completed</button>
-                <button id="software-inprogress">In Progress</button>
-                <button id="software-incomplete">Incomplete</button>
+            <div id="software-projects" class="projects-container">
+                <p id="software-title" class="section-titles">Websites & Software</p>
+                <div class="tabs-container">
+                    <button id="software-complete" class="currently-selected project-tabs">Completed</button>
+                    <button id="software-inprogress" class="project-tabs">In Progress</button>
+                    <button id="software-incomplete" class="project-tabs">Incomplete</button>
+                </div>
                 <div id="software-complete-section" class="software-sections">complete</div>
                 <div id="software-inprogress-section" class="software-sections" style="display: none;">inprogress</div>
                 <div id="software-incomplete-section" class="software-sections" style="display: none;">incomplete</div>
             </div>
-            <div id="games-projects">
-                <p id="games-title">Games</p>
-                <button id="games-complete" class="currently-selected">Completed</button>
-                <button id="games-inprogress">In Progress</button>
-                <button id="games-incomplete">Incomplete</button>
+            <div id="games-projects" class="projects-container">
+                <p id="games-title" class="section-titles">Games</p>
+                <div class="tabs-container">
+                    <button id="games-complete" class="currently-selected project-tabs">Completed</button>
+                    <button id="games-inprogress" class="project-tabs">In Progress</button>
+                    <button id="games-incomplete" class="project-tabs">Incomplete</button>
+                
+                </div>
                 <div id="games-complete-section" class="games-sections">complete</div>
                 <div id="games-inprogress-section" class="games-sections" style="display: none;">inprogress</div>
                 <div id="games-incomplete-section" class="games-sections" style="display: none;">incomplete</div>

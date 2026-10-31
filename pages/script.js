@@ -134,7 +134,8 @@ function closeWindow(element){
 }
 function openWindow(element) {
   zIndex += 1;
-  element.style.display = "block";
+  element.style.display = "flex";
+  element.style.flexDirection = "column";
   element.style.zIndex = zIndex;
 }
 

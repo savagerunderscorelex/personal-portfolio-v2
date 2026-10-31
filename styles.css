@@ -96,20 +96,74 @@ body {
 #projects {
   width: 90vw;
   height: 80vh;
-}
+  overflow: scroll;
 
-.hardware-sections {
-  width: 100%;
-  height: 20%;
 }
 
 .currently-selected {
   color: blue;
+  background-color: pink;
 }
 
 .open-tab{
   display:block;
 }
+
+.software-sections, .hardware-sections, .games-sections {
+  background-color: pink;
+  
+  height: 100%;
+  
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+}
+
+.projects-container{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  width: 99%;
+  margin: 0 auto;
+  flex-direction: column;
+  
+  
+}
+
+.project-tabs {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 0px;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: right;
+  width: 99%;
+  margin: 0 auto;
+}
+
+.project-cards {
+  width: fit-content;
+  height: fit-content;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2% 2%;
+}
+
+.section-titles {
+  margin-top: 2%;
+  width: 100%;
+  height: fit-content;
+}
+
+
+
+
+
 /* Taskbar Styling */
 #taskbar {
   width: 100%;
