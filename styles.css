@@ -96,8 +96,6 @@ body {
 #projects {
   width: 90vw;
   height: 80vh;
-  overflow: scroll;
-
 }
 
 .currently-selected {
@@ -105,28 +103,15 @@ body {
   background-color: pink;
 }
 
-.open-tab{
-  display:block;
-}
 
-.software-sections, .hardware-sections, .games-sections {
-  background-color: pink;
-  
-  height: 100%;
-  
-  display: flex;
-  align-content: center;
-  flex-direction: row;
-}
+
 
 .projects-container{
-  width: 100%;
   height: fit-content;
   display: flex;
-  width: 99%;
+  width: 95%;
   margin: 0 auto;
   flex-direction: column;
-  
   
 }
 
@@ -140,18 +125,20 @@ body {
 .tabs-container {
   display: flex;
   justify-content: right;
-  width: 99%;
-  margin: 0 auto;
+  width: 100%;
+  flex-direction: row;
 }
 
 .project-cards {
-  width: fit-content;
+  width: 300px;
   height: fit-content;
   border: 3px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin: 2% 2%;
+  padding: 2% 2%;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-titles {
@@ -160,9 +147,31 @@ body {
   height: fit-content;
 }
 
+.project-images {
+  width: 95%;
+  height: 200px;
+}
 
+.project-descriptions{
+  width: inherit;
+}
 
+#project-things {
+  height: 90%;
+  overflow-y: scroll;
+}
 
+.software-sections, .hardware-sections, .games-sections {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  word-wrap: normal;
+  overflow-x: auto;
+  
+}
 
 /* Taskbar Styling */
 #taskbar {

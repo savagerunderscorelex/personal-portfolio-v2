@@ -196,7 +196,7 @@ function selectSelection(element, button){
     // Changes display to block
     currentlyOpenSection.style.display = "none";
     currentlyOpenSection = element;
-    currentlyOpenSection.style.display = "block";
+    currentlyOpenSection.style.display = "flex";
 
   } else if (element.id.includes("software")){
     currentlySelectedSoftware.classList.remove("currently-selected");
@@ -205,7 +205,7 @@ function selectSelection(element, button){
 
     currOpenSoftware.style.display = "none";
     currOpenSoftware = element;
-    currOpenSoftware.style.display = "block";
+    currOpenSoftware.style.display = "flex";
 
   } else if (element.id.includes("games")){
     currentlySelectedGames.classList.remove("currently-selected");
@@ -214,7 +214,7 @@ function selectSelection(element, button){
 
     currOpenGames.style.display = "none";
     currOpenGames = element;
-    currOpenGames.style.display = "block";
+    currOpenGames.style.display = "flex";
   }
 
 }
