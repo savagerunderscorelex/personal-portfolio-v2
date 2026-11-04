@@ -70,6 +70,11 @@ body {
   display: none;
 }
 
+.window-content-containers {
+  height: 90%;
+  overflow-y: scroll;
+}
+
 /* Welcome Window & Icon */
 #welcome-icon {
   margin-top: 1vh;
@@ -82,7 +87,6 @@ body {
   width: 250px;
   height: 200px;
   overflow:hidden;
-  
 }
 
 #welcome-title {
@@ -103,17 +107,12 @@ body {
   background-color: pink;
 }
 
-
-
-
 .projects-container{
   height: 80vh;
   display: flex;
   width: 95%;
   margin: 0 auto;
   flex-direction: column;
-
-  
 }
 
 .project-tabs {
@@ -132,7 +131,7 @@ body {
 
 .project-cards {
   width: 300px;
-  height: 90%;
+  height: 85%;
   border: 3px solid black;
   display: flex;
   flex-direction: column;
@@ -155,11 +154,6 @@ body {
   width: inherit;
 }
 
-#project-things {
-  height: 90%;
-  overflow-y: scroll;
-}
-
 .software-sections, .hardware-sections, .games-sections {
   background-color: pink;
   height: 100%;
@@ -169,7 +163,6 @@ body {
   flex-direction: row;
   word-wrap: normal;
   overflow-x: auto;
-  
 }
 
 /* Socials Windows Styling*/
@@ -187,18 +180,15 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  
-  
 }
 
 #time-and-date{
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
   margin-top: 2px;
-  margin-left: auto;
   width: fit-content;
-  
-  
+  margin-left: auto;
+  align-items: flex-end;
+  margin-right: 2vw;
 }
