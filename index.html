@@ -1,28 +1,176 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Esther's Bookshelf</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+        <title>Projects!</title>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <nav>
-            <a href="pages/projects.html" class="nav-links">Projects!</a>
-            <a href="index.html" class="nav-links">Home (you are here)</a>
-
-        </nav>
-
-        <h1>Welcome!</h1>
-
-        <div id="introduction-container">
-            <h2>Who Am I</h2>
-            <p>Hello!! I’m a junior from Ohio who loves to tinker with technology!</p>
+        
+        <!--Welcome Window Structure-->
+        <div id="welcome" class="windows">
+            <div class="headers" id="welcomeheader">
+                <button class="close-button header-buttons" id="welcome-close">x</button>
+                <button class="full-split-buttons header-buttons" id="welcomefull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="welcomeminimize-close">-</button>
+            </div>
+            <p id="welcome-title">Welcome to estherOS!</p>
+            <p id="welcome-paragraph">Hi, my name is Esther and I'm a junior from the Midwest who loves to tinker with technology!<br>
+            </p>
         </div>
 
-        <div>
+        <!--Projects Window Structure, initially closed-->
+        <div id="projects" class="windows originally-closed">
+            <div class="headers" id="projectsheader">
+                <!--Header Buttons--> 
+                <button class="close-button header-buttons" id="projects-close">x</button>
+                <button class="full-split-buttons header-buttons" id="projectsfull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="projectsminimize-close">-</button>
+            </div>
+            <div class="window-content-containers">
+                <p id="projects-title">My Projects</p>
 
+                <div id="hardware-projects" class="projects-container">
+                    <p id="hardware-title" class="section-titles">Hardware Projects</p>
+                    <!--Hardware Section Project Status Tabs-->
+                    <div class="tabs-container">
+                        <button id="hardware-complete" class="currently-selected project-tabs">Completed</button>
+                        <button id="hardware-inprogress" class="project-tabs">In Progress</button>
+                        <button id="hardware-incomplete" class="project-tabs">Incomplete</button>
+                    </div>
+                    <!--Hardware Complete Section-->
+                    <div id="hardware-complete-section" class="hardware-sections">
+                        <!--Project 1: Blinky Project-->
+                        <div class="project-cards completed-hardware">
+                            <p class="project-card-titles">Heart LED Chaser</p>
+                            <img src="https://github.com/savagerunderscorelex/blink-blink-blink/raw/main/built_pcb.jpeg" alt="" class="project-images">
+                            <p class="project-descriptions">This was the first hardware project I completed through Hack Club. It is a LED chaser with a designed PCB. I've completed both the PCB design and the soldering!</p>
+                            <p class="github-links">Github Repo: <a href="https://github.com/savagerunderscorelex/blink-blink-blink">Blink-Blink-Blink</a></p>
+                        </div>
+                    </div>
+                    <!--Hardware In Progress Section-->
+                    <div id="hardware-inprogress-section" class="hardware-sections" style="display: none;">
+                        <div class="project-cards completed-hardware">
+                            <p class="project-card-titles">Project 1</p>
+                            <img src="" alt="" class="project-images">
+                            <p class="project-descriptions">jksd;jkafjdsk;jfdsjfk;ldsjafsd</p>
+                            <p class="github-links">djsk;fjsdkfjsd;afjd</p>
+                        </div>
+                    </div>
+                    <div id="hardware-incomplete-section" class="hardware-sections" style="display: none;">
+                        <div class="project-cards completed-hardware">
+                            <p class="project-card-titles">Project 1</p>
+                            <img src="" alt="" class="project-images">
+                            <p class="project-descriptions">jksd;jkafjdsk;jfdsjfk;ldsjafsd</p>
+                            <p class="github-links">djsk;fjsdkfjsd;afjd</p>
+                        </div>
+                    </div>
+            
+                </div>
+                <div id="software-projects" class="projects-container">
+                    <p id="software-title" class="section-titles">Websites & Software</p>
+                    <div class="tabs-container">
+                        <button id="software-complete" class="currently-selected project-tabs">Completed</button>
+                        <button id="software-inprogress" class="project-tabs">In Progress</button>
+                        <button id="software-incomplete" class="project-tabs">Incomplete</button>
+                    </div>
+                    <div id="software-complete-section" class="software-sections">complete</div>
+                    <div id="software-inprogress-section" class="software-sections" style="display: none;">inprogress</div>
+                    <div id="software-incomplete-section" class="software-sections" style="display: none;">incomplete</div>
+                </div>
+                <div id="games-projects" class="projects-container">
+                    <p id="games-title" class="section-titles">Games</p>
+                    <div class="tabs-container">
+                        <button id="games-complete" class="currently-selected project-tabs">Completed</button>
+                        <button id="games-inprogress" class="project-tabs">In Progress</button>
+                        <button id="games-incomplete" class="project-tabs">Incomplete</button>
+                    
+                    </div>
+                    <div id="games-complete-section" class="games-sections">complete</div>
+                    <div id="games-inprogress-section" class="games-sections" style="display: none;">inprogress</div>
+                    <div id="games-incomplete-section" class="games-sections" style="display: none;">incomplete</div>
+                </div>
+                
+            </div>
+        </div>
+           
+
+        <!--Interests Window Structure, initially closed-->
+        <div id="interests" class="windows originally-closed">
+            <div class="headers" id="interestsheader">
+                <button class="close-button header-buttons" id="interests-close">x</button>
+                <button class="full-split-buttons header-buttons" id="interestsfull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="interestsminimize-close">-</button>
+            </div>
+            <p id="interests-title">Welcome to estherOS!</p>
+            <p id="interests-paragraph">Hi, my name is Esther and I'm a junior from the Midwest who loves to tinker with technology!<br>
+            </p>
+        </div>
+
+        <!--File Explorer Window Structure, initially closed-->
+        <div id="file-explorer" class="windows originally-closed">
+            <div class="headers" id="file-explorerheader">
+                <button class="close-button header-buttons" id="file-explorer-close">x</button>
+                <button class="full-split-buttons header-buttons" id="file-explorerfull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="file-explorerminimize-close">-</button>
+            </div>
+            <div id="file-explorer-sidebar">
+
+            </div>
+            <div id="files-section">
+                <div>
+
+                </div>
+            </div>
+
+
+           
+        </div>
+
+        <!--Socials Window Structure, initially closed-->
+        <div id="socials" class="windows originally-closed">
+            <div class="headers" id="socialsheader">
+                <button class="close-button header-buttons" id="socials-close">x</button>
+                <button class="full-split-buttons header-buttons" id="socialsfull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="socialsminimize-close">-</button>
+            </div>
+            <p id="socials-title">Welcome to estherOS!</p>
+            <p id="socials-paragraph">Hi, my name is Esther and I'm a junior from the Midwest who loves to tinker with technology!<br>
+            </p>
+        </div>
+
+        <!--Settings Window Structure, initially closed-->
+        <div id="settings" class="windows originally-closed">
+            <div class="headers" id="settingsheader">
+                <button class="close-button header-buttons" id="settings-close">x</button>
+                <button class="full-split-buttons header-buttons" id="settingsfull-split"><img src="../window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
+                <button class="minimize-button header-buttons" id="settingsminimize-close">-</button>
+            </div>
+            <p id="settings-title">Welcome to estherOS!</p>
+            <p id="settings-paragraph">Hi, my name is Esther and I'm a junior from the Midwest who loves to tinker with technology!<br>
+            </p>
+        </div>
+
+        <!--Icons Container (sidebar)-->
+        <div id="icon-container">
+            <div id="welcome-icon" class="app-icons"></div>
+            <div id="projects-icon" class="app-icons"></div>
+            <div id="interests-icon" class="app-icons"></div>
+            <div id="file-explorer-icon" class="app-icons"></div>
+            <div id="socials-icon" class="app-icons"></div>
+            <div id="settings-icon" class="app-icons"></div>
         </div>
         
+        <!--Taskbar Structure-->
+        <footer id="taskbar">
+            <div id="time-and-date">
+                <div id="time"></div>
+                <div id="date"></div>
+            </div>
+        </footer>
+
+        <!--Script Obvi-->
+        <script src="./script.js"></script> <!--Make sure to always put the script at the bottom or your code won't work...-->
     </body>
 </html>
