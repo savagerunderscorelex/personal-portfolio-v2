@@ -1,7 +1,7 @@
 /* Media query for mobile devices (desktop layout disappears) */
 @media only screen and (max-width: 650px){
   #desktop-layout{
-    background-color: aliceblue;
+    color: pink;
   }
 }
 
