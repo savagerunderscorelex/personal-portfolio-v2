@@ -79,6 +79,7 @@ setInterval(function(){
 // Welcome Window Code
 dragElement(welcomeScreen);
 dragElementMobile(welcomeScreen);
+
 welcomeClose.addEventListener("click", function() {
   closeWindow(welcomeScreen);
 });
@@ -303,11 +304,11 @@ function dragElementMobile(element) {
     initialY = e.clientY;
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.ontouchend = stopDragging;
-    document.ontouchmove = dragElementMobile;
+    document.ontouchmove = dragElementMob;
   }
 
   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
-  function dragElementMobile(e) {
+  function dragElementMob(e) {
     e = e || window.event;
     e.preventDefault();
     
