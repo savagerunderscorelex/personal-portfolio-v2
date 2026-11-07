@@ -16,6 +16,10 @@ body {
   overflow: hidden;
 }
 
+#desktop-layout{
+  width: inherit;
+  height: inherit;
+}
 /* Icons */
 
 .app-icons{ 
