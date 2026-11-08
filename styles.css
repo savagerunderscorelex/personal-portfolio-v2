@@ -1,7 +1,7 @@
 /* Media query for mobile devices (desktop layout disappears) */
 @media only screen and (max-width: 650px){
   #desktop-layout{
-    color: pink;
+    color: blue;
   }
 }
 
@@ -137,13 +137,13 @@ body {
 
 .project-cards {
   width: 300px;
-  height: 85%;
+  height: 80%;
   border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3%;
-  margin: 0 4% 0 4%;
+  margin: 0 2vw 0 2vw;
 }
 
 .section-titles, #projects-title {
@@ -159,6 +159,15 @@ body {
 
 .project-descriptions{
   width: inherit;
+}
+
+.github-links, .demo-links {
+  margin: 0;
+  /* Button-like styling */
+  background-color: antiquewhite;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3px;
 }
 
 .software-sections, .hardware-sections, .games-sections {
