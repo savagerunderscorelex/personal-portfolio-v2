@@ -77,7 +77,8 @@ setInterval(function(){
 }, 1000);
 
 // Welcome Window Code
-dragElement(welcomeScreen);
+// dragElement(welcomeScreen);
+
 dragElementMobile(welcomeScreen);
 
 welcomeClose.addEventListener("click", function() {
