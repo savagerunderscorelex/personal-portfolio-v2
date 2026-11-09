@@ -45,7 +45,7 @@ body {
 
 .headers{
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   cursor: move;
   width: 100%;
   background-color: red;
@@ -53,6 +53,7 @@ body {
   border-top-right-radius: 10px;
   height: 30px;
   align-items: center;
+  justify-content: right;
 }
 
 .windows {
@@ -69,7 +70,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 4px
+  margin-right: 4px
 }
 
 .originally-closed {
@@ -122,10 +123,8 @@ body {
 }
 
 .project-tabs {
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 0px;
+  border: 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .tabs-container {
@@ -179,6 +178,14 @@ body {
   flex-direction: row;
   word-wrap: normal;
   overflow-x: auto;
+  border-radius: 9px 0px 9px 9px;
+}
+
+.nothing-here-text {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
 }
 
 /* Socials Windows Styling*/
