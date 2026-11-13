@@ -85,6 +85,7 @@ welcomeClose.addEventListener("click", function() {
 welcomeOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
+expandScreen(welcomeScreen);
 
 // Projects Window Code
 dragElement(projectsScreen);
@@ -94,7 +95,7 @@ projectsClose.addEventListener("click", function() {
 projectsOpen.addEventListener("click", function() {
   openWindow(projectsScreen);
 });
-
+expandScreen(projectsScreen);
 // Interests Window Code
 dragElement(interestsScreen);
 interestsClose.addEventListener("click", function() {
@@ -103,7 +104,7 @@ interestsClose.addEventListener("click", function() {
 interestsOpen.addEventListener("click", function() {
   openWindow(interestsScreen);
 });
-
+expandScreen(interestsScreen);
 // File Explorer Window Code
 dragElement(fileExplorerScreen);
 fileExplorerClose.addEventListener("click", function() {
@@ -112,7 +113,7 @@ fileExplorerClose.addEventListener("click", function() {
 fileExplorerOpen.addEventListener("click", function() {
   openWindow(fileExplorerScreen);
 });
-
+expandScreen(fileExplorerScreen);
 // Socials Window Code
 dragElement(socialsScreen);
 socialsClose.addEventListener("click", function() {
@@ -121,7 +122,7 @@ socialsClose.addEventListener("click", function() {
 socialsOpen.addEventListener("click", function() {
   openWindow(socialsScreen);
 });
-
+expandScreen(socialsScreen);
 // Settings Window Code
 dragElement(settingsScreen);
 settingsClose.addEventListener("click", function() {
@@ -130,14 +131,19 @@ settingsClose.addEventListener("click", function() {
 settingsOpen.addEventListener("click", function() {
   openWindow(settingsScreen);
 });
+expandScreen(settingsScreen);
+
+// Close Window Function
 function closeWindow(element){
   element.style.display = "none";
 }
+// Open Window Function
 function openWindow(element) {
   zIndex += 1;
   element.style.display = "flex";
   element.style.flexDirection = "column";
   element.style.zIndex = zIndex;
+  taskbar.style.zIndex += 1;
 }
 
 
@@ -217,9 +223,32 @@ function selectSelection(element, button){
     currOpenGames = element;
     currOpenGames.style.display = "flex";
   }
-
+  
 }
 
+// Expanded Screen function
+function expandScreen(element){
+  var isExpanded = false;
+  if (document.getElementById(element.id + "full-split")){
+    var button = document.getElementById(element.id + "full-split");
+    button.onclick = enlargeScreen;
+  }
+
+  function enlargeScreen(){
+    // This function will not work if the class attributes are not labeled !important
+    // Since window styling is based on id which has more precedence
+    isExpanded = !isExpanded;
+    var parent = button.parentElement.parentElement;
+    if (isExpanded){  
+      parent.classList.add("expanded");
+      button.firstElementChild.src = "./window-stack.svg";
+    } else {
+      parent.classList.remove("expanded");
+      button.firstElementChild.src = "./window-fullscreen.svg";
+    }
+    
+  }
+}
 
 // Code from Stardance Jam
 
