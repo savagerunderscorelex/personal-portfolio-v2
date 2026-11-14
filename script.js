@@ -39,9 +39,9 @@ var welcomeWindow = new Windows("welcome");
 // Welcome Screen Variables
 var welcomeOpen = document.getElementById("welcome-icon");
 var welcomeClose = document.getElementById("welcome-close")
+var welcomeScreen = document.getElementById("welcome");
 var welcomeMinimize = document.getElementById("welcomeminimize-close");
 var welcomeTaskbar = document.getElementById("welcome-taskbar-icon");
-var isWelcomeMinimized = false;
 
 // Projects Screen Variables
 var projectsScreen = document.getElementById("projects");
@@ -114,7 +114,7 @@ setInterval(function(){
 }, 1000);
 
 // Welcome Window Code
-dragElement(welcomeWindow.getScreen());
+dragElement(welcomeScreen);
 welcomeClose.addEventListener("click", function() {
   closeWindow(welcomeWindow.getScreen());
 });
@@ -122,10 +122,13 @@ welcomeOpen.addEventListener("click", function() {
   openWindow(welcomeWindow.getScreen());
 });
 expandScreen(welcomeScreen);
-
 welcomeMinimize.addEventListener("click", function(){
   changeTaskbarIcon(welcomeScreen);
 })
+welcomeTaskbar.addEventListener("click", function(){
+  reopenWindow(welcomeScreen);
+  changeTaskbarIcon(welcomeScreen);
+});
 
 // Projects Window Code
 dragElement(projectsScreen);
@@ -177,8 +180,8 @@ expandScreen(settingsScreen);
 // Close Window Function
 function closeWindow(element){
   element.style.display = "none";
-  //var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  //taskbarI.style.display = "none";
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  taskbarI.style.display = "none";
 }
 // Open Window Function
 function openWindow(element) {
@@ -187,17 +190,14 @@ function openWindow(element) {
   element.style.flexDirection = "column";
   element.style.zIndex = zIndex;
   taskbar.style.zIndex += 1;
-  element.classList.remove("originally-closed");
-  //var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  //taskbarI.style.display = "block";
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  taskbarI.style.display = "block";
 }
 
 function reopenWindow(element){
-  isWelcomeMinimized.
   element.style.display = "flex";
-  taskbarIcon.style.classList.remove("minimized");
-  taskbarIcon.style.classList.add("opened-icons");  
-     
+  element.style.flexDirection = "column";
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
 }
 
 
@@ -305,18 +305,22 @@ function expandScreen(element){
   }
 }
 
+var isMinimized = false;
 // Function for taskbar icons 
-/*
 function changeTaskbarIcon(element){
-  isWelcomeMinimized = true;
-  var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
-  if (isWelcomeMinimized){ 
-    element.style.display = "none";
+  element.style.display = "none";
+  isMinimized = !isMinimized;
+  if (document.getElementById(element.id + "-taskbar-icon")){
+    var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
+  }
+  if (isMinimized){
     taskbarIcon.style.classList.add("minimized");
     taskbarIcon.style.classList.remove("opened-icons");
+  } else {
+    taskbarIcon.style.classList.remove("minimized");
+    taskbarIcon.style.classList.add("opened-icons");    
   }
 }
-*/
 // Code from Stardance Jam
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
