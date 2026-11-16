@@ -7,23 +7,38 @@ class Windows{
   taskbarButton;
   isMinimized;
   constructor (windowName){
-    this.openButton = document.getElementById(windowName + "icon");
+    this.openButton = document.getElementById(windowName + "-icon");
     this.closeButton = document.getElementById(windowName + "-close");
     this.screen = document.getElementById(windowName);
     this.minimizeButton = document.getElementById(windowName + "minimize-close");
     this.taskbarButton = document.getElementById(windowName + "-taskbar-icon");
   }
+
+  getScreen(){
+    return this.screen;
+  }
+  getCloseButton(){
+    return this.closeButton;
+  }
+
 }
 
+/*
+class ProjectSections{
+  constructor(type, completionState){
+    pass
+  }
+}
+*/
 
-
+// Windows class instance (test)
+var welcomeWindow = new Windows("welcome");
 
 // Defining variables
 
 // Welcome Screen Variables
 var welcomeOpen = document.getElementById("welcome-icon");
 var welcomeClose = document.getElementById("welcome-close")
-var welcomeScreen = document.getElementById("welcome");
 var welcomeMinimize = document.getElementById("welcomeminimize-close");
 var welcomeTaskbar = document.getElementById("welcome-taskbar-icon");
 var isWelcomeMinimized = false;
@@ -99,12 +114,12 @@ setInterval(function(){
 }, 1000);
 
 // Welcome Window Code
-dragElement(welcomeScreen);
+dragElement(welcomeWindow.getScreen());
 welcomeClose.addEventListener("click", function() {
-  closeWindow(welcomeScreen);
+  closeWindow(welcomeWindow.getScreen());
 });
 welcomeOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
+  openWindow(welcomeWindow.getScreen());
 });
 expandScreen(welcomeScreen);
 
@@ -121,6 +136,7 @@ projectsOpen.addEventListener("click", function() {
   openWindow(projectsScreen);
 });
 expandScreen(projectsScreen);
+
 // Interests Window Code
 dragElement(interestsScreen);
 interestsClose.addEventListener("click", function() {
@@ -161,8 +177,8 @@ expandScreen(settingsScreen);
 // Close Window Function
 function closeWindow(element){
   element.style.display = "none";
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  taskbarI.style.display = "none";
+  //var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  //taskbarI.style.display = "none";
 }
 // Open Window Function
 function openWindow(element) {
@@ -171,8 +187,9 @@ function openWindow(element) {
   element.style.flexDirection = "column";
   element.style.zIndex = zIndex;
   taskbar.style.zIndex += 1;
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  taskbarI.style.display = "block";
+  element.classList.remove("originally-closed");
+  //var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  //taskbarI.style.display = "block";
 }
 
 function reopenWindow(element){
@@ -263,6 +280,7 @@ function selectSelection(element, button){
   
 }
 
+
 // Expanded Screen function
 function expandScreen(element){
   var isExpanded = false;
@@ -288,6 +306,7 @@ function expandScreen(element){
 }
 
 // Function for taskbar icons 
+/*
 function changeTaskbarIcon(element){
   isWelcomeMinimized = true;
   var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
@@ -297,7 +316,7 @@ function changeTaskbarIcon(element){
     taskbarIcon.style.classList.remove("opened-icons");
   }
 }
-
+*/
 // Code from Stardance Jam
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
