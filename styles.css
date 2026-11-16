@@ -21,6 +21,7 @@
 
 body {
   overflow: hidden;
+  display: grid;
 }
 
 #desktop-layout{
@@ -122,6 +123,7 @@ p, footer, a, button, div {
 }
 #welcome-paragraph{
   margin: 0 5% 0 5%;
+  font-size: 90%;
 }
 
 /* Projects Window Styling */
@@ -287,7 +289,8 @@ p, footer, a, button, div {
 }
 
 .minimized {
-  background-color: beige;
+  background-color: beige !important;
+
 }
 
 .closed-icons {

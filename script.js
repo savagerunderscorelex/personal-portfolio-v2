@@ -1,3 +1,23 @@
+// To make it more readable and easier to maintain, I will create a class based on windows for each section
+class Windows{
+  openButton;
+  closeButton;
+  screen;
+  minimizeButton;
+  taskbarButton;
+  isMinimized;
+  constructor (windowName){
+    this.openButton = document.getElementById(windowName + "icon");
+    this.closeButton = document.getElementById(windowName + "-close");
+    this.screen = document.getElementById(windowName);
+    this.minimizeButton = document.getElementById(windowName + "minimize-close");
+    this.taskbarButton = document.getElementById(windowName + "-taskbar-icon");
+  }
+}
+
+
+
+
 // Defining variables
 
 // Welcome Screen Variables
@@ -6,6 +26,7 @@ var welcomeClose = document.getElementById("welcome-close")
 var welcomeScreen = document.getElementById("welcome");
 var welcomeMinimize = document.getElementById("welcomeminimize-close");
 var welcomeTaskbar = document.getElementById("welcome-taskbar-icon");
+var isWelcomeMinimized = false;
 
 // Projects Screen Variables
 var projectsScreen = document.getElementById("projects");
@@ -86,13 +107,10 @@ welcomeOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
 expandScreen(welcomeScreen);
+
 welcomeMinimize.addEventListener("click", function(){
   changeTaskbarIcon(welcomeScreen);
 })
-welcomeTaskbar.addEventListener("click", function(){
-  reopenWindow(welcomeScreen);
-  changeTaskbarIcon(welcomeScreen);
-});
 
 // Projects Window Code
 dragElement(projectsScreen);
@@ -158,9 +176,11 @@ function openWindow(element) {
 }
 
 function reopenWindow(element){
+  isWelcomeMinimized.
   element.style.display = "flex";
-  element.style.flexDirection = "column";
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  taskbarIcon.style.classList.remove("minimized");
+  taskbarIcon.style.classList.add("opened-icons");  
+     
 }
 
 
@@ -267,22 +287,17 @@ function expandScreen(element){
   }
 }
 
-var isMinimized = false;
 // Function for taskbar icons 
 function changeTaskbarIcon(element){
-  element.style.display = "none";
-  isMinimized = !isMinimized;
-  if (document.getElementById(element.id + "-taskbar-icon")){
-    var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
-  }
-  if (isMinimized){
+  isWelcomeMinimized = true;
+  var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
+  if (isWelcomeMinimized){ 
+    element.style.display = "none";
     taskbarIcon.style.classList.add("minimized");
     taskbarIcon.style.classList.remove("opened-icons");
-  } else {
-    taskbarIcon.style.classList.remove("minimized");
-    taskbarIcon.style.classList.add("opened-icons");    
   }
 }
+
 // Code from Stardance Jam
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
