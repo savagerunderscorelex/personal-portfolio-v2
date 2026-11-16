@@ -1,5 +1,6 @@
 // To make it more readable and easier to maintain, I will create a class based on windows for each section
-class Windows{
+class Window{
+  // Buttons + Screen
   openButton;
   closeButton;
   screen;
@@ -20,80 +21,66 @@ class Windows{
   getCloseButton(){
     return this.closeButton;
   }
-
-}
-
-/*
-class ProjectSections{
-  constructor(type, completionState){
-    pass
+  getOpenButton(){
+    return this.openButton;
+  }
+  getMinimizeButton(){
+    return this.minimizeButton;
+  }
+  getTaskbarButton(){
+    this.taskbarButton;
   }
 }
-*/
 
-// Windows class instance (test)
-var welcomeWindow = new Windows("welcome");
+class ProjectSection{
+  // Each field is an array containing the button and the actual section.
+  completed;
+  inProgress;
+  incomplete;
+  constructor(type){
+    this.completed = [document.getElementById(type + "-complete"), document.getElementById(type + "-complete-section")];
+    this.inProgress = [document.getElementById(type + "-inprogress"), document.getElementById(type + "-inprogress-section")];
+    this.incomplete = [document.getElementById(type + "-incomplete"), document.getElementById(type + "-incomplete-section")];
+  }
 
-// Defining variables
+  getCompletedButton(){
+    return this.completed[0];
+  }
+  getCompletedSection(){
+    return this.completed[1];
+  }
+  getInProgressButton(){
+    return this.inProgress[0];
+  }
+  getInProgressSection(){
+    return this.inProgress[1];
+  }
+  getIncompletedButton(){
+    return this.incomplete[0];
+  }
+  getIncompletedSection(){
+    return this.incomplete[1];
+  }
+}
 
-// Welcome Screen Variables
-var welcomeOpen = document.getElementById("welcome-icon");
-var welcomeClose = document.getElementById("welcome-close")
-var welcomeScreen = document.getElementById("welcome");
-var welcomeMinimize = document.getElementById("welcomeminimize-close");
-var welcomeTaskbar = document.getElementById("welcome-taskbar-icon");
+// Windows
+const welcomeWindow = new Window("welcome");
+const projectsWindow = new Window("projects");
+const interestsWindow = new Window("interests");
+const fileExplorerWindow = new Window("file-explorer");
+const socialsWindow = new Window("socials");
+const settingsWindow = new Window("settings");
 
-// Projects Screen Variables
-var projectsScreen = document.getElementById("projects");
-var projectsOpen = document.getElementById("projects-icon");
-var projectsClose = document.getElementById("projects-close");
+// Array for All Windows
+const windows = [welcomeWindow, projectsWindow, settingsWindow, interestsWindow, fileExplorerWindow, socialsWindow];
 
-// Hardware Section
-var completedHardwareButton = document.getElementById("hardware-complete");
-var inprogHardwareButton = document.getElementById("hardware-inprogress");
-var incompleteHardwareButton = document.getElementById("hardware-incomplete");
+// Project Window Sections
+const hardwareSection = new ProjectSection("hardware");
+const softwareSection = new ProjectSection("software");
+const gamesSection = new ProjectSection("games");
 
-var completedSectionHardware = document.getElementById(completedHardwareButton.id + "-section");
-var inprogSectionHardware = document.getElementById(inprogHardwareButton.id + "-section");
-var incompleteSectionHardware = document.getElementById(incompleteHardwareButton.id + "-section");
-
-// Software Section
-var completedSoftwareButton = document.getElementById("software-complete");
-var inprogSoftwareButton = document.getElementById("software-inprogress");
-var incompleteSoftwareButton = document.getElementById("software-incomplete");
-
-var completedSectionSoftware = document.getElementById(completedSoftwareButton.id + "-section");
-var inprogSectionSoftware = document.getElementById(inprogSoftwareButton.id + "-section");
-var incompleteSectionSoftware = document.getElementById(incompleteSoftwareButton.id + "-section");
-
-// Games Section
-var completedGamesButton = document.getElementById("games-complete");
-var inprogGamesButton = document.getElementById("games-inprogress");
-var incompleteGamesButton = document.getElementById("games-incomplete");
-
-var completedSectionGames = document.getElementById(completedGamesButton.id + "-section");
-var inprogSectionGames = document.getElementById(inprogGamesButton.id + "-section");
-var incompleteSectionGames = document.getElementById(incompleteGamesButton.id + "-section");
-
-// Interests Screen Variables
-var interestsScreen = document.getElementById("interests");
-var interestsOpen = document.getElementById("interests-icon");
-var interestsClose = document.getElementById("interests-close");
-
-// Socials Screen Variables
-var socialsScreen = document.getElementById("socials");
-var socialsOpen = document.getElementById("socials-icon");
-var socialsClose = document.getElementById("socials-close");
-
-// File Explorer Screen Variables
-var fileExplorerScreen = document.getElementById("file-explorer");
-var fileExplorerOpen = document.getElementById("file-explorer-icon");
-var fileExplorerClose = document.getElementById("file-explorer-close");
-
-// Settings Screen Variables
-var settingsScreen = document.getElementById("settings");
-var settingsOpen = document.getElementById("settings-icon");
-var settingsClose = document.getElementById("settings-close");
+// Array for Project Sections
+const projectSections = [hardwareSection, softwareSection, gamesSection];
 
 // Taskbar Area Variables
 var timeAndDateSection = document.getElementById("time-and-date");
@@ -113,15 +100,19 @@ setInterval(function(){
   
 }, 1000);
 
-// Welcome Window Code
-dragElement(welcomeScreen);
-welcomeClose.addEventListener("click", function() {
-  closeWindow(welcomeWindow.getScreen());
+windows.forEach((window) => {
+  dragElement(window.getScreen());
+  window.getCloseButton().addEventListener("click", () => {
+    closeWindow(window.getScreen());
+  });
+  window.getOpenButton().addEventListener("click", () => {
+    openWindow(window.getScreen());
+  });
+  expandScreen(window.getScreen());
 });
-welcomeOpen.addEventListener("click", function() {
-  openWindow(welcomeWindow.getScreen());
-});
-expandScreen(welcomeScreen);
+
+
+/*
 welcomeMinimize.addEventListener("click", function(){
   changeTaskbarIcon(welcomeScreen);
 })
@@ -129,119 +120,34 @@ welcomeTaskbar.addEventListener("click", function(){
   reopenWindow(welcomeScreen);
   changeTaskbarIcon(welcomeScreen);
 });
+*/
 
-// Projects Window Code
-dragElement(projectsScreen);
-projectsClose.addEventListener("click", function() {
-  closeWindow(projectsScreen);
+projectSections.forEach((section) => {
+  section.getCompletedButton().addEventListener("click", () => {
+    selectSelection(section.getCompletedSection(), section.getCompletedButton())
+  });
+  section.getInProgressButton().addEventListener("click", () => {
+    selectSelection(section.getInProgressSection(), section.getInProgressButton());
+  });
+  section.getIncompletedButton().addEventListener("click", () => {
+    selectSelection(section.getIncompletedSection(), section.getIncompletedButton())
+  });
 });
-projectsOpen.addEventListener("click", function() {
-  openWindow(projectsScreen);
-});
-expandScreen(projectsScreen);
 
-// Interests Window Code
-dragElement(interestsScreen);
-interestsClose.addEventListener("click", function() {
-  closeWindow(interestsScreen);
-});
-interestsOpen.addEventListener("click", function() {
-  openWindow(interestsScreen);
-});
-expandScreen(interestsScreen);
-// File Explorer Window Code
-dragElement(fileExplorerScreen);
-fileExplorerClose.addEventListener("click", function() {
-  closeWindow(fileExplorerScreen);
-});
-fileExplorerOpen.addEventListener("click", function() {
-  openWindow(fileExplorerScreen);
-});
-expandScreen(fileExplorerScreen);
-// Socials Window Code
-dragElement(socialsScreen);
-socialsClose.addEventListener("click", function() {
-  closeWindow(socialsScreen);
-});
-socialsOpen.addEventListener("click", function() {
-  openWindow(socialsScreen);
-});
-expandScreen(socialsScreen);
-// Settings Window Code
-dragElement(settingsScreen);
-settingsClose.addEventListener("click", function() {
-  closeWindow(settingsScreen);
-});
-settingsOpen.addEventListener("click", function() {
-  openWindow(settingsScreen);
-});
-expandScreen(settingsScreen);
-
-// Close Window Function
-function closeWindow(element){
-  element.style.display = "none";
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  taskbarI.style.display = "none";
-}
-// Open Window Function
-function openWindow(element) {
-  zIndex += 1;
-  element.style.display = "flex";
-  element.style.flexDirection = "column";
-  element.style.zIndex = zIndex;
-  taskbar.style.zIndex += 1;
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  taskbarI.style.display = "block";
-}
-
-function reopenWindow(element){
-  element.style.display = "flex";
-  element.style.flexDirection = "column";
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-}
-
-
-// Hardware Button Event Listeners
-inprogHardwareButton.addEventListener("click", function(){
-  selectSelection(inprogSectionHardware,inprogHardwareButton);
-});
-completedHardwareButton.addEventListener("click", function() {
-  selectSelection(completedSectionHardware, completedHardwareButton)
-});
-incompleteHardwareButton.addEventListener("click", function(){
-  selectSelection(incompleteSectionHardware, incompleteHardwareButton)
-});
-// In Progress Button Event Listeners
-inprogSoftwareButton.addEventListener("click", function(){
-  selectSelection(inprogSectionSoftware,inprogSoftwareButton);
-});
-completedSoftwareButton.addEventListener("click", function() {
-  selectSelection(completedSectionSoftware, completedSoftwareButton)
-});
-incompleteSoftwareButton.addEventListener("click", function(){
-  selectSelection(incompleteSectionSoftware, incompleteSoftwareButton)
-});
-// Games Button Event Listeners
-inprogGamesButton.addEventListener("click", function(){
-  selectSelection(inprogSectionGames,inprogGamesButton);
-});
-completedGamesButton.addEventListener("click", function() {
-  selectSelection(completedSectionGames, completedGamesButton)
-});
-incompleteGamesButton.addEventListener("click", function(){
-  selectSelection(incompleteSectionGames, incompleteGamesButton)
-});
 
 // Variables for currently selected tab for each project type section
 // Hardware Variables
-var currentlySelectedHardware = completedHardwareButton;
-var currentlyOpenSection = completedSectionHardware;
+var currentlySelectedHardware = hardwareSection.getCompletedButton();
+var currentlyOpenSection = hardwareSection.getCompletedSection();
+
 // Software Variables
-var currentlySelectedSoftware = completedSoftwareButton;
-var currOpenSoftware = completedSectionSoftware;
+var currentlySelectedSoftware = softwareSection.getCompletedButton();
+var currOpenSoftware = softwareSection.getCompletedSection();
+
 // Game Variables
-var currentlySelectedGames = completedGamesButton;
-var currOpenGames = completedSectionGames;
+var currentlySelectedGames = gamesSection.getCompletedButton();
+var currOpenGames = gamesSection.getCompletedSection();
+
 
 // Function to change style and section shown when function is called
 function selectSelection(element, button){
@@ -279,7 +185,6 @@ function selectSelection(element, button){
   }
   
 }
-
 
 // Expanded Screen function
 function expandScreen(element){
@@ -321,6 +226,30 @@ function changeTaskbarIcon(element){
     taskbarIcon.style.classList.add("opened-icons");    
   }
 }
+
+// Close Window Function
+function closeWindow(element){
+  element.style.display = "none";
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  taskbarI.style.display = "none";
+}
+// Open Window Function
+function openWindow(element) {
+  zIndex += 1;
+  element.style.display = "flex";
+  element.style.flexDirection = "column";
+  element.style.zIndex = zIndex;
+  taskbar.style.zIndex += 1;
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  taskbarI.style.display = "block";
+}
+
+function reopenWindow(element){
+  element.style.display = "flex";
+  element.style.flexDirection = "column";
+  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+}
+
 // Code from Stardance Jam
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
