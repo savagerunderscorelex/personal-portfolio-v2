@@ -84,6 +84,9 @@ p, footer, a, button, div {
   position: absolute;
   z-index: 0;
   background-color: var(--window-background-color);
+  resize: both;
+  overflow: hidden;
+
 }
 
 .header-buttons {
@@ -110,12 +113,15 @@ p, footer, a, button, div {
 }
 
 #welcome {
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-  width: 250px;
-  height: 200px;
-  overflow:hidden;
+  top: 35%;
+  left: 35%;
+  width: 35vw;
+  height: 30vh;
+  /* Min/Max Widths and Heights */
+  max-width: 50vw;
+  max-height: 50vh;
+  min-width: 35vw;
+  min-height: 30vh;  
 }
 
 #welcome-title {
@@ -130,6 +136,10 @@ p, footer, a, button, div {
 #projects {
   width: 90vw;
   height: 80vh;
+  max-height: 90vh;
+  max-width: 99vw;
+  min-width: 50vw;
+  min-height: 50vh;
 }
 
 .currently-selected {
@@ -280,16 +290,16 @@ p, footer, a, button, div {
 .taskbar-icons{
   width: 4vh;
   height: 4vh;
-  background-color: blue;
+  background-color: black;
   margin: 1vh 0 3vw 1vh;
 }
 
-.opened-icons {
-  background-color: black;
-}
-
+.opened-icons{
+  display: block;
+  background-color: black !important;
+ }
 .minimized {
-  background-color: beige !important;
+  background-color: beige;
 }
 
 .closed-icons {

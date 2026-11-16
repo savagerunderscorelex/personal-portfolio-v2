@@ -107,7 +107,7 @@ windows.forEach((window) => {
     closeWindow(window.getScreen());
   });
   window.getOpenButton().addEventListener("click", () => {
-    openWindow(window.getScreen());
+    openWindow(window);
   });
   expandScreen(window.getScreen());
   window.getMinimizeButton().addEventListener("click", () => {
@@ -227,16 +227,21 @@ function closeWindow(element){
   element.style.display = "none";
   var taskbarI = document.getElementById(element.id + "-taskbar-icon");
   taskbarI.style.display = "none";
+  taskbarI.classList.remove("opened-icons");
 }
 // Open Window Function
 function openWindow(element) {
   zIndex += 1;
-  element.style.display = "flex";
-  element.style.flexDirection = "column";
-  element.style.zIndex = zIndex;
-  taskbar.style.zIndex += 1;
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
-  taskbarI.style.display = "block";
+  element.getScreen().style.display = "flex";
+  element.getScreen().style.flexDirection = "column";
+  element.getScreen().style.zIndex = zIndex;
+  taskbar.style.zIndex = zIndex;
+  element.isMinimized = false;
+  if(element.isMinimized == false){
+    var taskbarIcon = element.getTaskbarButton();
+    taskbarIcon.style.display = "block";
+    taskbarIcon.classList.add("opened-icons"); 
+  }
 }
 
 function reopenWindow(element){
