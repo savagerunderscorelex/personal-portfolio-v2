@@ -13,6 +13,7 @@ class Window{
     this.screen = document.getElementById(windowName);
     this.minimizeButton = document.getElementById(windowName + "minimize-close");
     this.taskbarButton = document.getElementById(windowName + "-taskbar-icon");
+    this.isMinimized = false;
   }
 
   getScreen(){
@@ -28,7 +29,7 @@ class Window{
     return this.minimizeButton;
   }
   getTaskbarButton(){
-    this.taskbarButton;
+    return this.taskbarButton;
   }
 }
 
@@ -109,18 +110,14 @@ windows.forEach((window) => {
     openWindow(window.getScreen());
   });
   expandScreen(window.getScreen());
+  window.getMinimizeButton().addEventListener("click", () => {
+    changeTaskbarIcon(window);
+  })
+  window.getTaskbarButton().addEventListener("click", () => {
+    reopenWindow(window);
+  })
 });
 
-
-/*
-welcomeMinimize.addEventListener("click", function(){
-  changeTaskbarIcon(welcomeScreen);
-})
-welcomeTaskbar.addEventListener("click", function(){
-  reopenWindow(welcomeScreen);
-  changeTaskbarIcon(welcomeScreen);
-});
-*/
 
 projectSections.forEach((section) => {
   section.getCompletedButton().addEventListener("click", () => {
@@ -210,20 +207,18 @@ function expandScreen(element){
   }
 }
 
-var isMinimized = false;
 // Function for taskbar icons 
-function changeTaskbarIcon(element){
-  element.style.display = "none";
-  isMinimized = !isMinimized;
-  if (document.getElementById(element.id + "-taskbar-icon")){
-    var taskbarIcon = document.getElementById(element.id + "-taskbar-icon");
-  }
-  if (isMinimized){
-    taskbarIcon.style.classList.add("minimized");
-    taskbarIcon.style.classList.remove("opened-icons");
+function changeTaskbarIcon(window){
+  window.getScreen().style.display = "none";
+  window.isMinimized = !window.isMinimized;
+  var taskbarIcon = window.getTaskbarButton();
+
+  if (window.isMinimized){
+    taskbarIcon.classList.add("minimized");
+    taskbarIcon.classList.remove("opened-icons");
   } else {
-    taskbarIcon.style.classList.remove("minimized");
-    taskbarIcon.style.classList.add("opened-icons");    
+    taskbarIcon.classList.remove("minimized");
+    taskbarIcon.classList.add("opened-icons");    
   }
 }
 
@@ -245,9 +240,14 @@ function openWindow(element) {
 }
 
 function reopenWindow(element){
-  element.style.display = "flex";
-  element.style.flexDirection = "column";
-  var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  element.isMinimized = !element.isMinimized;
+  if (element.isMinimized == false){
+    element.getScreen().style.display = "flex";
+    element.getScreen().style.flexDirection = "column";
+    var taskbarIcon = element.getTaskbarButton();
+    taskbarIcon.classList.remove("minimized");
+    taskbarIcon.classList.add("opened-icons"); 
+  }
 }
 
 // Code from Stardance Jam

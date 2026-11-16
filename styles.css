@@ -289,7 +289,7 @@ p, footer, a, button, div {
 }
 
 .minimized {
-  background-color: beige;
+  background-color: beige !important;
 }
 
 .closed-icons {
