@@ -113,11 +113,11 @@ windows.forEach((window) => {
   expandScreen(window.getScreen());
   window.getMinimizeButton().addEventListener("click", () => {
     changeTaskbarIcon(window);
-  })
+  });
   window.getTaskbarButton().addEventListener("click", () => {
     reopenWindow(window);
-  })
-  dragElementMobile(window.getScreen())
+  });
+  dragElementMobile(window.getScreen());
 });
 
 
@@ -292,8 +292,6 @@ function dragElement(element) {
 
   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
   function dragElement(e) {
-    e = e || window.event;
-    e.preventDefault();
     
     // Step 10: Calculate the new cursor position.
     currentX = initialX - e.clientX;
@@ -312,27 +310,31 @@ function dragElement(element) {
   }
 }
 
-function dragElementMobile(element) {
-  var box = document.getElementById(element.id + "-header");
-  
-  box.addEventListener('touchmove', function(e) {
-    // grab the location of touch
-    var touchLocation = e.targetTouches[0];
-    
-    // assign box new coordinates based on the touch.
-    box.style.left = touchLocation.pageX + 'px';
-    box.style.top = touchLocation.pageY + 'px';
-  })
-  
-  /* record the position of the touch
-  when released using touchend event.
-  This will be the drop position. */
-  
-  box.addEventListener('touchend', function(e) {
-    // current box position.
-    var x = parseInt(box.style.left);
-    var y = parseInt(box.style.top);
-  })
-  
+function dragElementMobile(element){
+  init(element);
+  function touchHandler(event) {
+    var touch = event.changedTouches[0];
+
+    var simulatedEvent = document.createEvent("MouseEvent");
+      simulatedEvent.initMouseEvent({
+      touchstart: "mousedown",
+      touchmove: "mousemove",
+      touchend: "mouseup"
+    }[event.type], true, true, window, 1,
+      touch.screenX, touch.screenY,
+      touch.clientX, touch.clientY, false,
+      false, false, false, 0, null);
+
+    touch.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+  }
+
+  function init(elmt) {
+    elmt.addEventListener("touchstart", touchHandler);
+    elmt.addEventListener("touchmove", touchHandler);
+    elmt.addEventListener("touchend", touchHandler);
+    elmt.addEventListener("touchcancel", touchHandler);
+  }
 }
+
 

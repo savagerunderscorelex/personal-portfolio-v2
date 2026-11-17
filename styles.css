@@ -76,6 +76,7 @@ p, footer, a, button, div {
   height: 30px;
   align-items: center;
   justify-content: right;
+  touch-action: none;
 }
 
 .windows {
@@ -113,8 +114,6 @@ p, footer, a, button, div {
 }
 
 #welcome {
-  top: 35%;
-  left: 35%;
   width: 35vw;
   height: 30vh;
   /* Min/Max Widths and Heights */
@@ -122,6 +121,7 @@ p, footer, a, button, div {
   max-height: 50vh;
   min-width: 35vw;
   min-height: 30vh;  
+
 }
 
 #welcome-title {
