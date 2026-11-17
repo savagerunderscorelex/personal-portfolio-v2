@@ -310,8 +310,9 @@ function dragElement(element) {
   }
 }
 
+// Mobile Dragging
 function dragElementMobile(element){
-  var header = element;
+  var header = document.getElementById(element.id + "header");
   var startX = 0;
   var startY = 0;
   var endX = 0;
@@ -321,7 +322,6 @@ function dragElementMobile(element){
   
   function touchStart(e){
     var touch = e.touches[0];
-    e.preventDefault();
     startX = touch.clientX;
     startY = touch.clientY;
 
@@ -337,8 +337,8 @@ function dragElementMobile(element){
     startX = touch.clientX;
     startY = touch.clientY;
 
-    header.style.top = (header.offsetTop - endY) + "px";
-    header.style.left = (header.offsetLeft - endX) + "px";
+    element.style.top = (element.offsetTop - endY) + "px";
+    element.style.left = (element.offsetLeft - endX) + "px";
   }
   function touchEnd(e){
     document.removeEventListener("touchmove", touchMove);
