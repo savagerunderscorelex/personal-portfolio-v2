@@ -1,9 +1,5 @@
 /* Media query for mobile devices (desktop layout disappears) */
-@media only screen and (max-width: 650px){
-  #desktop-layout{
-    color: darkmagenta;
-  }
-}
+
 
 /* Root Variables for different themes.*/
 :root{
@@ -15,8 +11,8 @@
 }
 /* General / Body / HTML */
 .centered{
-    text-align: center;
-    color: blue;
+  text-align: center;
+  color: blue;
 }
 
 body {
@@ -24,9 +20,10 @@ body {
 }
 
 #desktop-layout{
-  max-width: inherit;
-  max-height: inherit;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
+  scrollbar-width: none;
 }
 
 p, footer, a, button, div {
@@ -45,15 +42,7 @@ p, footer, a, button, div {
   src: url("./Poppin-Regular.otf");
 }
 /* Icons */
-.app-icons{ 
-  background-color: blue;
-  display: block;
-  border-radius: 5%;
-  height: 100px;
-  width: 100px;
-  margin-bottom: 9%;
 
-}
 
 #icon-container{
   width: 120px;
@@ -61,6 +50,15 @@ p, footer, a, button, div {
   display: flex;
   flex-direction: column;
   margin-left: 1.5vw;
+}
+
+.app-icons{
+  background-color: blue;
+  display: block;
+  border-radius: 5%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 9%;
 }
 
 
@@ -87,8 +85,6 @@ p, footer, a, button, div {
   background-color: var(--window-background-color);
   resize: both;
   overflow: hidden;
-  
-  
 
 }
 
@@ -111,9 +107,6 @@ p, footer, a, button, div {
 }
 
 /* Welcome Window & Icon */
-#welcome-icon {
-  margin-top: 1vh;
-}
 
 #welcome {
   width: 40vw;
@@ -121,8 +114,8 @@ p, footer, a, button, div {
   /* Min/Max Widths and Heights */
   max-width: 50vw;
   max-height: 50vh;
-  min-width: 35vw;
-  min-height: 30vh;  
+  min-width: 30vw;
+  min-height: fit-content;  
 
 }
 
@@ -130,7 +123,7 @@ p, footer, a, button, div {
   margin-left: 5%;
 }
 #welcome-paragraph{
-  margin: 0 5% 0 5%;
+  margin: 0 5% 5% 5%;
   font-size: 90%;
 }
 
@@ -313,3 +306,34 @@ p, footer, a, button, div {
 .closed-icons {
   display: none;
 }
+
+/* Media Query for Mobile Screens */
+@media only screen and (max-width: 600px){
+  body {
+    height: 100vh;
+  }
+  #desktop-layout{
+    color: darkmagenta;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+  }
+  #icon-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    padding-bottom: 10vh;
+  }
+  .app-icons {
+    background-color: blue;
+    height: 90%;
+    width: 90%;
+  }
+}
+
