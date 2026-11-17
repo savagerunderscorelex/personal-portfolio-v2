@@ -27,6 +27,7 @@ body {
 #desktop-layout{
   max-width: inherit;
   max-height: inherit;
+  overflow: hidden;
 }
 
 p, footer, a, button, div {
@@ -76,7 +77,8 @@ p, footer, a, button, div {
   height: 30px;
   align-items: center;
   justify-content: right;
-  touch-action: none;
+  
+  
 }
 
 .windows {
@@ -87,6 +89,8 @@ p, footer, a, button, div {
   background-color: var(--window-background-color);
   resize: both;
   overflow: hidden;
+  touch-action: none;
+  position: fixed;
 
 }
 
@@ -114,7 +118,7 @@ p, footer, a, button, div {
 }
 
 #welcome {
-  width: 35vw;
+  width: 40vw;
   height: 30vh;
   /* Min/Max Widths and Heights */
   max-width: 50vw;

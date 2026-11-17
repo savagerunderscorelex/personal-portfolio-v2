@@ -311,30 +311,40 @@ function dragElement(element) {
 }
 
 function dragElementMobile(element){
-  init(element);
-  function touchHandler(event) {
-    var touch = event.changedTouches[0];
+  var header = element;
+  var startX = 0;
+  var startY = 0;
+  var endX = 0;
+  var endY = 0;
+  
+  header.addEventListener("touchstart", touchStart, {passive: true});
+  
+  function touchStart(e){
+    var touch = e.touches[0];
+    e.preventDefault();
+    startX = touch.clientX;
+    startY = touch.clientY;
 
-    var simulatedEvent = document.createEvent("MouseEvent");
-      simulatedEvent.initMouseEvent({
-      touchstart: "mousedown",
-      touchmove: "mousemove",
-      touchend: "mouseup"
-    }[event.type], true, true, window, 1,
-      touch.screenX, touch.screenY,
-      touch.clientX, touch.clientY, false,
-      false, false, false, 0, null);
-
-    touch.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
+    document.addEventListener("touchmove", touchMove);
+    document.addEventListener("touchend", touchEnd);
   }
 
-  function init(elmt) {
-    elmt.addEventListener("touchstart", touchHandler);
-    elmt.addEventListener("touchmove", touchHandler);
-    elmt.addEventListener("touchend", touchHandler);
-    elmt.addEventListener("touchcancel", touchHandler);
+  function touchMove(e){
+    var touch = e.touches[0];
+    endX = startX - touch.clientX;
+    endY = startY - touch.clientY;
+
+    startX = touch.clientX;
+    startY = touch.clientY;
+
+    header.style.top = (header.offsetTop - endY) + "px";
+    header.style.left = (header.offsetLeft - endX) + "px";
   }
+  function touchEnd(e){
+    document.removeEventListener("touchmove", touchMove);
+  }
+  
+  
 }
 
 
