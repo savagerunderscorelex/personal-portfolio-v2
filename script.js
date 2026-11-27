@@ -68,12 +68,11 @@ class ProjectSection{
 const welcomeWindow = new Window("welcome");
 const projectsWindow = new Window("projects");
 const interestsWindow = new Window("interests");
-const fileExplorerWindow = new Window("file-explorer");
 const socialsWindow = new Window("socials");
 const settingsWindow = new Window("settings");
 
 // Array for All Windows
-const windows = [welcomeWindow, projectsWindow, settingsWindow, interestsWindow, fileExplorerWindow, socialsWindow];
+const windows = [welcomeWindow, projectsWindow, settingsWindow, interestsWindow, socialsWindow];
 
 // Project Window Sections
 const hardwareSection = new ProjectSection("hardware");
