@@ -56,7 +56,7 @@ p, footer, a, button, div {
 }
 
 .app-icons{
-  background-color: blue;
+  background-color: transparent;
   display: block;
   border-radius: 5%;
   height: 75px;
@@ -241,8 +241,6 @@ p, footer, a, button, div {
   color: pink;
 }
 
-
-
 .nothing-here-text {
   width: 100%;
   justify-content: center;
@@ -324,10 +322,12 @@ p, footer, a, button, div {
 
 #files-section {
   width: 80%;
-  height: 100%;
+  height: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+  margin-right: 3%;
 }
 
 #file-explorer-content {
@@ -336,6 +336,7 @@ p, footer, a, button, div {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-content:center ;
   
 }
 
@@ -426,7 +427,6 @@ p, footer, a, button, div {
 /* Media Query for Mobile Screens */
 @media only screen and (max-width: 600px){
   .app-icons{
-    background-color: blue;
     display: block;
     border-radius: 5%;
     height: 28vh;
