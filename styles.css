@@ -9,6 +9,8 @@
   --button-color: #c25b78;
   --header-font-family: "Poppin";
   --body-font-family: "Chillin on a Sunday";
+  --desktop-background-color: magenta;
+  --project-card-color: lightblue;
 }
 /* General / Body / HTML */
 
@@ -19,12 +21,14 @@
 
 body {
   overflow: hidden;
+  background-color: var(--desktop-background-color);
 }
 
 #desktop-layout{
   height: 100%;
   width: 100%;
   overflow: hidden;
+  
 }
 
 p, footer, a, button, div {
@@ -106,12 +110,11 @@ p, footer, a, button, div {
 }
 
 .window-content-containers {
-  height: 90%;
-  
+  height: 95%;
+  width: 100%;
 }
 
 /* Welcome Window & Icon */
-
 #welcome {
   width: 40vw;
   height: 30vh;
@@ -133,12 +136,12 @@ p, footer, a, button, div {
 
 /* Projects Window Styling */
 #projects {
+  max-height: 90vh;
+  max-width: 98vw;
   width: 90vw;
   height: 80vh;
-  max-height: 90vh;
-  max-width: 99vw;
-  min-width: 50vw;
-  min-height: 50vh;
+  min-width: 90vw;
+  min-height: 80vh;
 }
 
 .currently-selected {
@@ -147,14 +150,27 @@ p, footer, a, button, div {
 }
 
 .projects-container{
-  height: 80vh;
+  height: 100%;
   display: flex;
   width: 95%;
   margin: 0 auto;
   flex-direction: column;
-  overflow: clip;
+  /* overflow: hidden; */
 }
 
+.software-sections, .hardware-sections, .games-sections {
+  background-color: pink;
+  height: 120%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  word-wrap: normal;
+  overflow-x: auto;
+  border-radius: 9px 0px 9px 9px;
+  padding: 1vh;
+  overflow-y: hidden;
+}
 .project-tabs {
   border: 0px;
   border-radius: 5px 5px 0px 0px;
@@ -169,14 +185,15 @@ p, footer, a, button, div {
 
 .project-cards {
   width: 300px;
-  height: 80%;
+  height: 85%;
   border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2%;
-  margin: 0 2vw 0 2vw;
+  margin: 0 2vw 0 2vw; 
   border-radius: 5%;
+  background-color: var(--project-card-color);
 }
 
 .project-card-titles {
@@ -185,8 +202,9 @@ p, footer, a, button, div {
 }
 
 .section-titles {
-  margin-top: 2%;
   width: 100%;
+  font-size: 1.5em;
+  text-align: center;
   height: fit-content;
 }
 
@@ -197,6 +215,8 @@ p, footer, a, button, div {
 
 .project-descriptions{
   width: inherit;
+  margin: 0;
+  margin: 0.5vh 0 0.5vh 0;
 }
 
 .github-links, .demo-links {
@@ -221,17 +241,7 @@ p, footer, a, button, div {
   color: pink;
 }
 
-.software-sections, .hardware-sections, .games-sections {
-  background-color: pink;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  word-wrap: normal;
-  overflow-x: auto;
-  border-radius: 9px 0px 9px 9px;
-}
+
 
 .nothing-here-text {
   width: 100%;
@@ -244,7 +254,7 @@ p, footer, a, button, div {
   margin:0;
   margin-left: 2vw;
   margin-top: 2vh;
-  font-size: 4vh;
+  font-size: 2em;
   display: flex;
   justify-content: center;
   width: 95%;
