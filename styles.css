@@ -160,7 +160,7 @@ p, footer, a, button, div {
 
 .software-sections, .hardware-sections, .games-sections {
   background-color: pink;
-  height: 120%;
+  height: 120ch;
   width: 100%;
   display: flex;
   align-items: center;
@@ -194,6 +194,11 @@ p, footer, a, button, div {
   margin: 0 2vw 0 2vw; 
   border-radius: 5%;
   background-color: var(--project-card-color);
+  transition: transform 0.5s ease;
+}
+
+.project-cards:hover {
+  transform: rotate(3deg);
 }
 
 .project-card-titles {
@@ -263,8 +268,10 @@ p, footer, a, button, div {
 }
 /* Socials Windows Styling*/
 #socials {
-  height: 90vh;
-  width: 20vw;
+  max-height: 90vh;
+  min-height: 90vh;
+  min-width: 20vw;
+  max-width: 30vw;
 }
 
 /* File Explorer Styling */
@@ -321,11 +328,11 @@ p, footer, a, button, div {
 }
 
 #files-section {
-  width: 80%;
-  height: 50%;
+  width: 50%;
+  height: 95%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
   gap: 5px;
   margin-right: 3%;
 }
@@ -336,8 +343,8 @@ p, footer, a, button, div {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content:center ;
-  
+  align-content:center;
+  justify-content: space-around;
 }
 
 /* Interests and Hobbies Styling */
@@ -356,6 +363,8 @@ p, footer, a, button, div {
   font-family: var(--header-font-family);
   width: 100%;
   display: flex;
+  text-align: center;
+  height: fit-content;
   justify-content: center;
   align-items: center;
 }
