@@ -42,9 +42,8 @@ p, footer, a, button, div {
   font-family: "Poppin";
   src: url("./Poppin-Regular.otf");
 }
+
 /* Icons */
-
-
 #icon-container{
   width: 120px;
   height: 95vh;
@@ -62,7 +61,11 @@ p, footer, a, button, div {
   margin-left: 1.5vw;
 }
 
-
+.desktop-icon-images {
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+}
 /* Windows (General) */
 .headers{
   display: flex;
@@ -104,7 +107,7 @@ p, footer, a, button, div {
 
 .window-content-containers {
   height: 90%;
-  overflow-y: scroll;
+  
 }
 
 /* Welcome Window & Icon */
@@ -247,63 +250,13 @@ p, footer, a, button, div {
   width: 95%;
 }
 
+#projects-content-container {
+  overflow-y: scroll;
+}
 /* Socials Windows Styling*/
 #socials {
   height: 90vh;
   width: 20vw;
-}
-
-/* Taskbar Styling */
-#taskbar {
-  width: 100%;
-  height: 6vh;
-  background-color: pink;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-#time-and-date{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 2px;
-  width: fit-content;
-  margin-left: auto; 
-  margin-right: 2vw;
-}
-
-#taskbar-icons-container {
-  width:auto;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-.expanded {
-  width: 95vw !important;
-  height: 90vh !important;
-}
-
-.taskbar-icons{
-  width: 4vh;
-  height: 4vh;
-  background-color: black;
-  margin: 1vh 0 3vw 1vh;
-}
-
-.opened-icons{
-  display: block;
-  background-color: black !important;
- }
-.minimized {
-  background-color: beige;
-}
-
-.closed-icons {
-  display: none;
 }
 
 /* File Explorer Styling */
@@ -376,22 +329,107 @@ p, footer, a, button, div {
   
 }
 
+/* Interests and Hobbies Styling */
+#interests {
+  max-width: 95vw;
+  max-height: 85vh;
+  min-width: 70vw;
+  min-height: 70vh;
+}
+
+#interests-content{
+  padding: 5%;
+}
+
+#interests-title {
+  font-family: var(--header-font-family);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Taskbar Styling */
+#taskbar {
+  width: 100%;
+  height: 6vh;
+  background-color: pink;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#time-and-date{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  width: fit-content;
+  margin-left: auto; 
+  margin-right: 2vw;
+}
+
+#taskbar-icons-container {
+  width:auto;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.expanded {
+  width: 95vw !important;
+  height: 90vh !important;
+}
+
+.taskbar-icons{
+  width: 6vh;
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0 0 0 1vw;  
+  border-radius: 5px;
+}
+
+.taskbar-icon-images {
+  width: 70%;
+  height: 70%;
+  padding-top: 10%;
+  margin: 0;
+ 
+}
+.opened-icons{
+  display: block;
+  background-color: transparent;
+}
+.minimized {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid white;
+}
+
+.closed-icons {
+  display: none;
+}
+
 /* Media Query for Mobile Screens */
 @media only screen and (max-width: 600px){
   .app-icons{
     background-color: blue;
     display: block;
     border-radius: 5%;
-    height: 90%;
-    width: 90%;
+    height: 28vh;
+    width: 46vw;
   }
 
   #icon-container {
-    width: 90vw;
-    height: 95vh;
+    width: 100vw; 
+    height: 94vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-self: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    
   }
 
   #desktop-layout{

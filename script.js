@@ -84,6 +84,7 @@ const gamesSection = new ProjectSection("games");
 const projectSections = [hardwareSection, softwareSection, gamesSection];
 
 // Taskbar Area Variables
+var order = 2;
 var timeAndDateSection = document.getElementById("time-and-date");
 var taskbar = document.getElementById("taskbar");
 
@@ -228,15 +229,19 @@ function changeTaskbarIcon(window){
 function closeWindow(element){
   element.style.display = "none";
   var taskbarI = document.getElementById(element.id + "-taskbar-icon");
+  order = -1;
   taskbarI.style.display = "none";
   taskbarI.classList.remove("opened-icons");
+  taskbarI.style.order = order;
 }
 // Open Window Function
 function openWindow(element) {
   zIndex += 1;
+  order += 1;
   element.getScreen().style.display = "flex";
   element.getScreen().style.flexDirection = "column";
   element.getScreen().style.zIndex = zIndex;
+  element.getTaskbarButton().style.order = order;
   taskbar.style.zIndex = zIndex;
   element.isMinimized = false;
   if(element.isMinimized == false){

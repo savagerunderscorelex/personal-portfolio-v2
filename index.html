@@ -50,7 +50,7 @@ NOTE: Finalize whether this site will truly be a personal portfolio or a persona
                     <button class="full-split-buttons header-buttons" id="projectsfull-split"><img src="./window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
                     <button class="minimize-button header-buttons" id="projectsminimize-close">-</button>
                 </div>
-                <div class="window-content-containers">
+                <div id="projects-content-container" class="window-content-containers">
                     <p id="projects-title">My Projects</p>
 
                     <div id="hardware-projects" class="projects-container">
@@ -240,15 +240,17 @@ NOTE: Finalize whether this site will truly be a personal portfolio or a persona
                     <button class="full-split-buttons header-buttons" id="interestsfull-split"><img src="./window-fullscreen.svg" style="width: 10px; height: 10px;"/></button>
                     <button class="minimize-button header-buttons" id="interestsminimize-close">-</button>
                 </div>
-                <p id="interests-title">Interests and Hobbies</p>
-                <p id="interests-paragraph">
-                    Besides computer science and engineering, I have many other hobbies and interests!
-                </p>
-                <div id="hobbies-section">
-                    <div >
+                <div id="interests-content" class="window-content-containers">
+                    <p id="interests-title">Interests and Hobbies</p>
+                    <p id="interests-paragraph">
+                        Besides computer science and engineering, I have many other hobbies and interests!
+                    </p>
+                    <div id="hobbies-section">
+                        <div>
 
+                        </div>
                     </div>
-                </div>
+                </div>    
             </div>
 
             <!--File Explorer Window Structure, initially closed-->
@@ -317,7 +319,7 @@ NOTE: Finalize whether this site will truly be a personal portfolio or a persona
 
             <!--Icons Container (sidebar)-->
             <div id="icon-container">
-                <div id="welcome-icon" class="app-icons"></div>
+                <div id="welcome-icon" class="app-icons"><img src="app-icons/welcome-icon.png" alt="" class="desktop-icon-images"></div>
                 <div id="projects-icon" class="app-icons"></div>
                 <div id="interests-icon" class="app-icons"></div>
                 <div id="file-explorer-icon" class="app-icons"></div>
@@ -330,12 +332,12 @@ NOTE: Finalize whether this site will truly be a personal portfolio or a persona
         <!--Taskbar Structure-->
         <footer id="taskbar">
             <div id="taskbar-icons-container">
-                <button class="taskbar-icons opened-icons" id="welcome-taskbar-icon"></button>
-                <button class="taskbar-icons originally-closed" id="projects-taskbar-icon"></button>
-                <button class="taskbar-icons originally-closed" id="settings-taskbar-icon"></button>
-                <button class="taskbar-icons originally-closed" id="socials-taskbar-icon"></button>
-                <button class="taskbar-icons originally-closed" id="interests-taskbar-icon"></button>
-                <button class="taskbar-icons originally-closed" id="file-explorer-taskbar-icon"></button>
+                <button class="taskbar-icons opened-icons" id="welcome-taskbar-icon"><img src="app-icons/welcome-icon.png" class="taskbar-icon-images"></button>
+                <button class="taskbar-icons closed-icons" id="projects-taskbar-icon"><img src="app-icons/projects-icon.png" class="taskbar-icon-images"></button>
+                <button class="taskbar-icons closed-icons" id="settings-taskbar-icon"><img src="app-icons/settings-icon.png" class="taskbar-icon-images"></button>
+                <button class="taskbar-icons closed-icons" id="socials-taskbar-icon"><img src="app-icons/socials-icon.png" class="taskbar-icon-images"></button>
+                <button class="taskbar-icons closed-icons" id="interests-taskbar-icon"><img src="app-icons/interests-icon.png" class="taskbar-icon-images"></button>
+                <button class="taskbar-icons closed-icons" id="file-explorer-taskbar-icon"><img src="app-icons/file-explorer-icon.png" class="taskbar-icon-images"></button>
             </div>
 
             <div id="time-and-date">
