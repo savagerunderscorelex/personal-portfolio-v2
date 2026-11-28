@@ -4,22 +4,25 @@
 }
 /* Root Variables for different themes.*/
 :root{
+  --general-accent-color: #f5d3dd;
   --header-color: #da1c5c; 
   --window-background-color: #f5d3dd;
   --button-color: #c25b78;
   --header-font-family: "Poppin";
   --body-font-family: "Chillin on a Sunday";
-  --desktop-background-color: magenta;
-  --project-card-color: lightblue;
+  --desktop-background-color: #f1a7bd;
+  --project-card-color: rgb(255, 194, 211);
   --window-border-color: #a81848;
   --header-button-background-color: #ffffff;
   --header-button-border-color: #000000;
   --header-button-icon-color: pink;
   --project-tab-color: #f1a7bd;
-  --currently-selected-text-color: blue;
+  --currently-selected-text-color: #da1c5c;
   --taskbar-color: #831539;
   --taskbar-border: #500e24;
   --taskbar-hover-background: rgba(255, 255, 255, 0.15);
+  --scrollbar-color: #831539;
+  --text-color: #da1c5c;
 }
 /* General / Body / HTML */
 
@@ -30,15 +33,15 @@
 
 body {
   overflow: hidden;
-  background-image: url("backgrounds/rectangle-background.jpg");
-  background-repeat:no-repeat;
-  background-size: cover;
+
 }
 
 #desktop-layout{
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
+  position: fixed;
+  background-color: var(--desktop-background-color);
   
 }
 
@@ -60,19 +63,19 @@ p, footer, a, button, div {
 
 /* Icons */
 #icon-container{
-  width: 120px;
-  height: 95vh;
+  width: 20%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  margin-top: 1%;
 }
 
 .app-icons{
   background-color: transparent;
   display: block;
-  border-radius: 5%;
-  height: 75px;
-  width: 75px;
-  margin-bottom: 9%;
+  height: 15%;
+  width: 45%;
+  margin-bottom: 5%;
   margin-left: 1.5vw;
 }
 
@@ -81,7 +84,9 @@ p, footer, a, button, div {
   height: 100%;
   border-radius: 5%;
 }
-
+.mobile-text {
+  display: none;
+}
 /* Windows (General) */
 .headers{
   display: flex;
@@ -103,6 +108,8 @@ p, footer, a, button, div {
   background-color: var(--window-background-color);
   resize: both;
   overflow: hidden;
+  scrollbar-color: var(--scrollbar-color) var(--general-accent-color);
+  color: var(--text-color);
 
 }
 
@@ -255,7 +262,8 @@ p, footer, a, button, div {
   width: 90%;
   text-align: center;
   margin-bottom: 3px;
-  border: 3px solid black ;
+  border: 3px solid black;
+  color: black;
   border-radius: 10px;
   height: fit-content;
   padding: 2px;
@@ -389,19 +397,28 @@ p, footer, a, button, div {
 /* Media Query for Mobile Screens */
 @media only screen and (max-width: 600px){
   .app-icons{
-    display: block;
-    border-radius: 5%;
-    height: 28vh;
-    width: 46vw;
+    background-color: var(--button-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    width: 40%;
+    height: 40%;
+
   }
 
   #icon-container {
-    width: 100vw; 
-    height: 94vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    
+    width: 100%; 
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+  }
+
+  .desktop-icon-images {
+    display: none;
   }
 
   #desktop-layout{
@@ -411,6 +428,13 @@ p, footer, a, button, div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--desktop-background-color);
+  }
+
+  .mobile-text {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
   }
   
   #welcome {
@@ -419,9 +443,6 @@ p, footer, a, button, div {
 
   #projects-content-container {
     overflow-x: hidden;
-  }
-  body {
-    background-image: url("backgrounds/square-background.jpg");
   }
 }
 
